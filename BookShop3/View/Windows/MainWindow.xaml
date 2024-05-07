@@ -8,15 +8,16 @@
         Title="{Binding Title}" Height="450" Width="800">
     <DockPanel>
         <Menu IsMainMenu="True">
-            <MenuItem Header="Покупатели"/>
-            <MenuItem Header="Книги"/>
-            <MenuItem Header="Статистика"/>
+            <MenuItem Header="Покупатели" Command="{Binding ShowBuyersViewModelCommand}"/>
+            <MenuItem Header="Книги" Command="{Binding ShowBooksViewCommand}"/>
+            <MenuItem Header="Статистика" Command="{Binding ShowStatisticViewCommand}"/>
         </Menu>
         <StatusBar>
             <TextBlock Text="окей"/>
         </StatusBar>
-        <Grid >
-
+        <Grid>
+           
+            <ContentControl Content="{Binding CurrentModel}"></ContentControl>
         </Grid>
 
     </DockPanel>
