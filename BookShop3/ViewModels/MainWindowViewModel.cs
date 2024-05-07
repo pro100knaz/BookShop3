@@ -11,13 +11,26 @@ namespace BookShop3.ViewModels
 {
     public class MainWindowViewModel : ViewModel
     {
+        #region string Title - "Имя заголовка"
+
+        ///<summary> Имя заголовка </summary>
+        private string _Title = "Работа с Entity Framework";
+
+        ///<summary> Имя заголовка </summary>
+        public string Title
+        {
+            get => _Title;
+            set => Set(ref _Title, value);
+        }
+
+        #endregion
         public IRepository<Book> Books { get; }
 
         public MainWindowViewModel(IRepository<Book> books)
         {
             Books = books;
 
-            var x = books.Items.Take(10).ToArray();
+            var bookss = books.Items.Take(10).ToArray();
         }
     }
 }

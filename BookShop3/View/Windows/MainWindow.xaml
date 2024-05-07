@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookShop3"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}" Height="450" Width="800">
     <Grid>
 
     </Grid>
