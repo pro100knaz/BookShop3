@@ -1,6 +1,5 @@
 ﻿using BookShop.Interfaces;
 using BookShop3.Dal.Context;
-using BookShop3.Dal.Entities;
 using BookShop3.Dal.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -68,10 +67,6 @@ namespace BookShop3.Dal
 
         public void Remove(int id)
         {
-            //var item = Get(id);
-            //if (item is null) return;
-            //_db.Entry(item);
-
             var item = _Set.Local.FirstOrDefault(i => i.Id == id) ?? new T { Id = id };
 
             _db.Remove(item);
@@ -87,23 +82,4 @@ namespace BookShop3.Dal
                 await _db.SaveChangesAsync(Cancel).ConfigureAwait(false);
         }
     }
-    class BooksRepository : DbRepository<Book>
-    {
-        public override IQueryable<Book> Items => base.Items.Include(item => item.Category);
-
-        public BooksRepository(BookShopDB db) : base(db) { }
-    }
-    class DealsRepository : DbRepository<Deal>
-    {
-        public override IQueryable<Deal> Items => base.Items
-            .Include(item => item.Book)
-            .Include(item => item.Seller)
-            .Include(item => item.Buyer)
-        ;
-
-        public DealsRepository(BookShopDB db) : base(db) { }
-    }
-
-
-
 }
