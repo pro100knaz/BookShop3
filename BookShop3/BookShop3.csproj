@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	  <StartupObject>BookShop3.Program</StartupObject>
+  </PropertyGroup>
+
+
+
+
+	     <ItemGroup>
+    <PackageReference Include="MathCore.WPF" Version="0.0.44.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+
+
+
+	     <ItemGroup>
+	       <Folder Include="Models\" />
+	       <Folder Include="Infrastructure\" />
+	     </ItemGroup>
+
+
+
+
+	     <ItemGroup>
+	       <ProjectReference Include="..\BookShop.Infrastructure\BookShop.Interfaces.csproj" />
+	       <ProjectReference Include="..\BookShop3.Dal\BookShop3.Dal.csproj" />
+	     </ItemGroup>
+
+
+
+
+	     <ItemGroup>
+	       <None Update="appsettings.json">
+	         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	       </None>
+	     </ItemGroup>
+
+    </Project>
