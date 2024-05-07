@@ -10,7 +10,7 @@
 <view:BuyersView DataContext="{Binding}"/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:StatisticViewModel}">
-<view:Statistic DataContext="{Binding}"/>
+<view:StatisticView DataContext="{Binding}"/>
     </DataTemplate>
 
 </ResourceDictionary>

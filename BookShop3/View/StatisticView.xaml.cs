@@ -18,9 +18,9 @@ namespace BookShop3.View
     /// <summary>
     /// Логика взаимодействия для Statistic.xaml
     /// </summary>
-    public partial class Statistic : UserControl
+    public partial class StatisticView : UserControl
     {
-        public Statistic()
+        public StatisticView()
         {
             InitializeComponent();
         }

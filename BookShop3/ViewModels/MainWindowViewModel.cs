@@ -104,7 +104,8 @@ namespace BookShop3.ViewModels
             CurrentModel = new StatisticViewModel(
                     _booksRepository,
                     _buyerRepository,
-                    _sellerRepository
+                    _sellerRepository,
+                    _dealRepository
                 );
         }
 
@@ -116,17 +117,20 @@ namespace BookShop3.ViewModels
         private readonly IRepository<Book> _booksRepository;
         private readonly IRepository<Buyer> _buyerRepository;
         private readonly IRepository<Seller> _sellerRepository;
+        private readonly IRepository<Deal> _dealRepository;
         private readonly ISalesService _salesService;
 
         public MainWindowViewModel(
             IRepository<Book> BooksRepository,
             IRepository<Buyer> BuyerRepository,
             IRepository<Seller> SellerRepository,
+            IRepository<Deal> DealRepository,
             ISalesService salesService)
         {
             _booksRepository = BooksRepository;
             _buyerRepository = BuyerRepository;
             _sellerRepository = SellerRepository;
+            _dealRepository = DealRepository;
             _salesService = salesService;
 
 
