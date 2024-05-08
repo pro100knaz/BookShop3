@@ -67,7 +67,7 @@ namespace BookShop3.Dal
 
         public void Remove(int id)
         {
-            var item = _Set.Local.FirstOrDefault(i => i.Id == id) ?? new T { Id = id };
+            var item = _Set.Local.FirstOrDefault(i => i.Id == id) ?? new T { Id = id }; //если есть вернём нет создадим, ну а потом удалим ) //иначе ошибка удаления из за кеширования
 
             _db.Remove(item);
 

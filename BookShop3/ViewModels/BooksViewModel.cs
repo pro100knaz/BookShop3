@@ -156,9 +156,16 @@ namespace BookShop3.ViewModels
 
             var book_to_remove = book ?? SelectedBook;
 
-            //todo: запрос к пользователю
+
+            if(!_userDialog.ConfirmWarning($"Вы хотите удалить книгу{book_to_remove.Name} ?", "Book Deleting")) return;
+
 
             _booksRepository.Remove(book_to_remove.Id);
+            Books.Remove(book_to_remove);
+
+            if (ReferenceEquals(SelectedBook, book_to_remove))
+                SelectedBook = null;
+
 
         }
 
