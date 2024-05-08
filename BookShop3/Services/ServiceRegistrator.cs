@@ -13,6 +13,7 @@ namespace BookShop3.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<ISalesService ,SalesService>()
+            .AddTransient<IUserDialogService , UserDialogService>()
         ;
 
     }

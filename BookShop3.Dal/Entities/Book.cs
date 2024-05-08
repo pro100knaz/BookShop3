@@ -9,7 +9,7 @@ namespace BookShop3.Dal.Entities
 {
     public class Book : NamedEntity
     {
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         public override string ToString() => $"Книга {Name}";
     }

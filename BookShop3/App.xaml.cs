@@ -12,13 +12,14 @@ namespace BookShop3
 
     public partial class App
     {
+
         public static Window ActiveWindow => Application.Current.Windows
             .OfType<Window>()
             .FirstOrDefault(w => w.IsActive);
 
         public static Window FocusedWindow => Application.Current.Windows
-            .OfType<Window>()
-            .FirstOrDefault(w => w.IsFocused);
+                  .OfType<Window>()
+                  .FirstOrDefault(w => w.IsFocused);
 
         public static Window CurrentWindow => FocusedWindow ?? ActiveWindow;
 
@@ -32,8 +33,8 @@ namespace BookShop3
         public static IServiceProvider Services => Host.Services;
 
         internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
-            .AddServices()
             .AddDatabase(host.Configuration.GetSection("Database"))
+            .AddServices()
             .AddViewModels()
         ;
 

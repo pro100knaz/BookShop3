@@ -28,13 +28,6 @@
 
 
 	     <ItemGroup>
-	       <Folder Include="Infrastructure\Commands\" />
-	     </ItemGroup>
-
-
-
-
-	     <ItemGroup>
 	       <ProjectReference Include="..\BookShop.Infrastructure\BookShop.Interfaces.csproj" />
 	       <ProjectReference Include="..\BookShop3.Dal\BookShop3.Dal.csproj" />
 	     </ItemGroup>

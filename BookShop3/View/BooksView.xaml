@@ -5,10 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              mc:Ignorable="d" 
              xmlns:local="clr-namespace:BookShop3.View"
              xmlns:vm="clr-namespace:BookShop3.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              d:DataContext="{d:DesignInstance {x:Type vm:BooksViewModel}, IsDesignTimeCreatable=True }"
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -17,18 +23,24 @@
         </Grid.ColumnDefinitions>
 
         <GroupBox Header="Книги">
-            <!--<GroupBox.Resources>
-                <CollectionViewSource x:Key="BooksView" 
-                                      Source="{Binding Books}">
-                    <CollectionViewSource.SortDescriptions>
-                        <cm:SortDescription PropertyName="Name"/>
-                    </CollectionViewSource.SortDescriptions>
-                </CollectionViewSource>
-            </GroupBox.Resources>-->
-
+                                                                <!--<GroupBox.Resources>
+                                                                    <CollectionViewSource x:Key="BooksView" 
+                                                                                          Source="{Binding Books}">
+                                                                        <CollectionViewSource.SortDescriptions>
+                                                                            <cm:SortDescription PropertyName="Name"/>
+                                                                        </CollectionViewSource.SortDescriptions>
+                                                                    </CollectionViewSource>
+                                                                </GroupBox.Resources>-->
             <DockPanel>
+                <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+                    <Button Content="Удалить" Margin="4" 
+                            CommandParameter="{Binding SelectedBook}"
+                            Command="{Binding DeleteSelectedBookCommand}"/>
+                    <Button  Content="Добавить" Margin="4" Command="{Binding AddNewBookCommand}"/>
+                </UniformGrid>
                 <TextBox DockPanel.Dock="Top" Text="{Binding BooksFilter, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <ListBox Width="140" MinWidth="140" 
+                         SelectedItem="{Binding SelectedBook}"
                          ItemsSource="{Binding  BooksView}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

@@ -12,8 +12,16 @@ using MathCore.WPF.ViewModels;
 
 namespace BookShop3.ViewModels
 {
-    public class MainWindowViewModel : ViewModel
+    internal class MainWindowViewModel : ViewModel
     {
+        private readonly IRepository<Book> _booksRepository;
+        private readonly IRepository<Buyer> _buyerRepository;
+        private readonly IRepository<Seller> _sellerRepository;
+        private readonly IRepository<Deal> _dealRepository;
+        private readonly ISalesService _salesService;
+
+        private readonly IUserDialogService _userDialogService;
+
         #region string Title - "Имя заголовка"
 
         ///<summary> Имя заголовка </summary>
@@ -61,7 +69,7 @@ namespace BookShop3.ViewModels
         private void OnShowBooksViewCommandExecuted(object p)
         {
 
-            CurrentModel = new BooksViewModel(_booksRepository);
+            CurrentModel = new BooksViewModel(_booksRepository, _userDialogService);
         }
 
         #endregion
@@ -112,21 +120,15 @@ namespace BookShop3.ViewModels
         #endregion
 
 
-
-
-        private readonly IRepository<Book> _booksRepository;
-        private readonly IRepository<Buyer> _buyerRepository;
-        private readonly IRepository<Seller> _sellerRepository;
-        private readonly IRepository<Deal> _dealRepository;
-        private readonly ISalesService _salesService;
-
         public MainWindowViewModel(
+            IUserDialogService userDialogService,
             IRepository<Book> BooksRepository,
             IRepository<Buyer> BuyerRepository,
             IRepository<Seller> SellerRepository,
             IRepository<Deal> DealRepository,
             ISalesService salesService)
         {
+            _userDialogService = userDialogService;
             _booksRepository = BooksRepository;
             _buyerRepository = BuyerRepository;
             _sellerRepository = SellerRepository;
