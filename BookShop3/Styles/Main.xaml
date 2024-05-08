@@ -8,9 +8,20 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
     <Style TargetType="StatusBar">
         <Setter Property="DockPanel.Dock" Value="Bottom"/>
-        
+    </Style>
+
+
+    <Style TargetType="DataGrid">
+        <Setter Property="CanUserDeleteRows" Value="False"></Setter>
+        <Setter Property="CanUserAddRows" Value="False"></Setter>
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+        <Setter Property="GridLinesVisibility" Value="Vertical"></Setter>
+        <Setter Property="VerticalGridLinesBrush" Value="DarkGray"></Setter>
+        <Setter Property="AlternatingRowBackground" Value="CornflowerBlue"></Setter>
+        <Setter Property ="HeadersVisibility" Value="Column"></Setter>
     </Style>
 
 </ResourceDictionary>
